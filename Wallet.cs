@@ -5,7 +5,8 @@ namespace Lektion2
     public class Wallet
     {
         // Mängden pengar i plånboken, får aldrig vara negativt
-        private Kronor amount;
+        public Kronor amount = new Kronor();
+        
 
         // Skapar en tom plånbok
         public Wallet()
@@ -33,7 +34,11 @@ namespace Lektion2
          */
         public void Remove(Kronor money)
         {
-            amount = amount.Add(money);
+            if (!(amount.Öre >= money.Öre))
+            {
+                throw new ArgumentException("Insufficient balance");
+            }
+            amount = amount.Subtract(money);
         }
 
         /*
