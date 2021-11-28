@@ -9,6 +9,7 @@ namespace Lektion2
          * När vi väl har skapat ett Kronor-objekt ska det aldrig kunna ändras
          */
         private readonly int öre;
+        public int Öre => öre;
 
         // Skapar tom Kronor
         public Kronor()
@@ -26,7 +27,7 @@ namespace Lektion2
          */
         public Kronor(int kronor, int öre)
         {
-            //this.öre = kronor + öre * 100;
+           
             this.öre = öre + kronor * 100;
         }
 

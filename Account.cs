@@ -13,7 +13,12 @@ namespace Lektion2
          * -1 + 7 är tillåtet
          * -10 -5 är inte tillåtet
          */
-        private Kronor amount;
+        private Kronor _amount = new Kronor();
+        public Kronor amount
+        {
+            get => _amount;
+            set => _amount = value;
+        }
 
         // Skapar ett tomt konto
         public Account()
@@ -41,7 +46,11 @@ namespace Lektion2
          */
         public void Withdraw(Kronor money)
         {
-            amount = amount.Add(money);
+            if (!(amount.Öre >= (money.Öre * 90 / 100)))
+            {
+                throw new ArgumentException("Insufficient balance");
+            }
+            amount = amount.Subtract(money);
         }
 
         /*
